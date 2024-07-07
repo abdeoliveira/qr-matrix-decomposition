@@ -93,11 +93,16 @@ a = [[1,1,0],[1,0,1],[0,1,1]]
 
 
   puts "A:"
+  precision = 0
   matrix = ''
-  @nlin.times do |i|
-    @ncol.times do |j|
-      element = (a[j][i].round(4)).to_s
-      space = 3-element.size
+  lines = @nlin
+  columns = @ncol
+  lines.times do |i|
+    columns.times do |j|
+      element = (a[j][i].round(precision)).to_s
+      element = "%.#{precision}f"%element
+      space = precision + 5 - element.size
+      if precision == 0 then space = 2 end
       matrix += " "*space+element
     end
     matrix += "\n"
@@ -110,7 +115,7 @@ a = [[1,1,0],[1,0,1],[0,1,1]]
   @nlin.times do |i|
     @ncol.times do |j|
       element = (e[j][i].round(4)).to_s
-      space = 9-element.size
+      space = 9 - element.size
       matrix += " "*space+element
     end
     matrix += "\n"
@@ -124,7 +129,7 @@ a = [[1,1,0],[1,0,1],[0,1,1]]
   @ncol.times do |i|
     @ncol.times do |j|
       element = (r[j][i].round(4)).to_s
-      space = 8-element.size
+      space = 9-element.size
       matrix += " "*space+element
     end
     matrix += "\n"
