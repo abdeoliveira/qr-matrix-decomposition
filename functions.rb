@@ -44,8 +44,8 @@ end
 
 
 
-def cumulative_vector(a,e,j)
-  sum = Array.new(@nlin, 0)
+def cumulative_vector(a,e,j,nlin)
+  sum = Array.new(nlin, 0)
   tmp = []
   (0..j-1).each do |i|
     tmp = scalar_multiply( inner(a[j],e[i]) , e[i] )
